@@ -1,0 +1,26 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <h2>Adivina el numero !</h2>
+  <div class="card bg-light mb-3">
+    <div class="card-body">
+      <p class="card-text">Adivina el numero aleatorio generado entre 1
+        y 1000.</p>
+    </div>
+  </div>
+  <div>
+    <label>Tu adivinanza: </label>
+    <input type="number" [value]="guess" (input)="guess = $event.target.value" />
+    <button (click)="verifyGuess()" class="btn btn-primary btn-sm">Verificar</button>
+    <button (click)="initializeGame()" class="btn btn-warning btnsm">Reiniciar</button>
+  </div>
+  <div>
+    <p *ngIf="deviation<0" class="alert alert-warning">El numero es menor que {{lastGuess}}.</p>
+    <p *ngIf="deviation>0" class="alert alert-warning">El numero es mayor que {{lastGuess}}.</p>
+    <p *ngIf="deviation===0" class="alert alert-success">Adivinaste! El numero generado es {{original}}.</p>
+  </div>
+  <p class="text-info">Nro de Intentos :
+    <span class="badge">{{noOfTries}}</span>
+  </p>
+</div>
+
+
